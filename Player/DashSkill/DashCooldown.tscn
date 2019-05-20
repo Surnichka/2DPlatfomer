@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/skills/dash/dash2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/skills/dash/dash.png" type="Texture" id=2]
+
+[node name="DashCooldown" type="TextureProgress"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.1, 0.1 )
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+

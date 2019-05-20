@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://particles/rocks/crumbs_particle.tres" type="Material" id=1]
+[ext_resource path="res://particles/rocks/crumbs.png" type="Texture" id=2]
+[ext_resource path="res://particles/rocks/DirectionalRock.gd" type="Script" id=3]
+
+[node name="DirectionalRock" type="Particles2D"]
+modulate = Color( 0.690196, 0.486275, 0.133333, 1 )
+rotation = -1.5708
+emitting = false
+amount = 20
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.9
+randomness = 0.9
+local_coords = false
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Pebbles2" type="Particles2D" parent="."]
+visible = false
+self_modulate = Color( 0.744278, 0.768273, 0.832031, 1 )
+show_behind_parent = true
+scale = Vector2( 1.3383, 1.50043 )
+amount = 20
+lifetime = 0.7
+explosiveness = 0.8
+local_coords = false
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Pebbles" type="Particles2D" parent="."]
+show_behind_parent = true
+scale = Vector2( 1.01931, 1.27982 )
+amount = 20
+lifetime = 0.7
+explosiveness = 0.8
+local_coords = false
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+

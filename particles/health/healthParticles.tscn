@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://particles/health/health_material.tres" type="Material" id=1]
+[ext_resource path="res://particles/health/healthParticle.png" type="Texture" id=2]
+
+[node name="Particles2D" type="Particles2D"]
+rotation = -1.57585
+amount = 3
+lifetime = 1.5
+speed_scale = 0.8
+explosiveness = 0.3
+draw_order = 1
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 3
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+

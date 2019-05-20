@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-1.png.png" type="Texture" id=1]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-2.png.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-3.png.png" type="Texture" id=3]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-4.png.png" type="Texture" id=4]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-5.png.png" type="Texture" id=5]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-6.png.png" type="Texture" id=6]
+[ext_resource path="res://sprites/enviroment/rain_splash/splash-7.png.png" type="Texture" id=7]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1200, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 0.519608
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="AnimatedTexture" id=2]
+flags = 4
+frames = 7
+fps = 10.0
+frame_0/texture = ExtResource( 1 )
+frame_1/texture = ExtResource( 2 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 3 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 4 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 5 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 6 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 7 )
+frame_6/delay_sec = 0.0
+
+[node name="RainSplash" type="Particles2D"]
+explosiveness = 0.1
+process_material = SubResource( 1 )
+texture = SubResource( 2 )
+

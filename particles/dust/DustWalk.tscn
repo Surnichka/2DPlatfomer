@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://particles/dust/dust_puffs_particle_jump.tres" type="Material" id=1]
+[ext_resource path="res://particles/dust/puff_stylized.png" type="Texture" id=2]
+
+[node name="DustWalk" type="Particles2D"]
+position = Vector2( 1, 0 )
+rotation = -4.59577
+lifetime = 0.7
+explosiveness = 0.95
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
