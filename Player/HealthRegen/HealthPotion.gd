@@ -24,10 +24,13 @@ func _on_Area2D_body_entered(body):
 		consumerMirror = body
 		body._stats.regen += healAmount
 		$Timer.start()
+		print("ADD 5 HEALTH REGEN")
 		$CollisionShape2D2.call_deferred("set_disabled", true)
+		$Area2D/CollisionShape2D.call_deferred("set_disabled", true)
 		hide()
 
 func OnHealthFinished():
+	print("REMOVE 5 HEALTH REGEN")
 	consumerMirror._stats.regen -= healAmount
 	queue_free()
 	health.queue_free()

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 const SPEED = 22
+const SPEED_AIR_X = 50
+const SPEED_AIR_Y = 500
 const GRAVITY = 10
 const JUMP_POWER = -265
 const FLOOR = Vector2(0, -1)
@@ -20,14 +22,13 @@ const HIT_SKILL = preload("res://Player/HitSkill/hit_animation.tscn")
 var rain = RAIN.instance() #386 camera size
 var rain_splash = RAIN_SPLASH.instance()
 
-
 var attackCounter = 0
 var isAttacking = false
 
 var is_moving = false
 var on_ground = false
 var is_attacking = false
-
+var is_hooking = false
 var animation_priority = 0
 
 var is_landing = false
@@ -56,34 +57,34 @@ func _physics_process(delta):
 	if get_node("/root/UI/SlashCooldown").value < 100:
 		get_node("/root/UI/SlashCooldown").value += 2
 	
-	if Input.is_action_pressed("ui_right"):
-		if is_attacking == false or is_on_floor() == false:
-			acceleration.x = SPEED
-			is_moving = true
-			if is_attacking == false:
-				$AnimatedSprite.play("Run")
-				$AnimatedSprite.flip_h = false
-				isLeft = true
-				$Position2D.position.x *= -1
-	elif Input.is_action_pressed("ui_left"):
-		if is_attacking == false or is_on_floor() == false:
-			acceleration.x = -SPEED
-			is_moving = true
-			if is_attacking == false:
-				$AnimatedSprite.play("Run")
-				$AnimatedSprite.flip_h = true
-				isLeft = false
-				$Position2D.position.x *= -1
-	else:
-		acceleration.x = 0
-		is_moving = false
-		if on_ground == true && is_attacking == false:
-			$AnimatedSprite.play("Idle")
-		if is_landing:
-			SignalSystem.emit_signal("CameraShake", 1, 2, 100)
-			_landing_dust_particle()
-			is_landing = false
-		
+	if not is_hooking:
+		if Input.is_action_pressed("ui_right"):
+			if is_attacking == false or is_on_floor() == false:
+				acceleration.x += SPEED
+				is_moving = true
+				if is_attacking == false:
+					$AnimatedSprite.play("Run")
+					$AnimatedSprite.flip_h = false
+					isLeft = true
+					$Position2D.position.x *= -1
+		elif Input.is_action_pressed("ui_left"):
+			if is_attacking == false or is_on_floor() == false:
+				acceleration.x += -SPEED
+				is_moving = true
+				if is_attacking == false:
+					$AnimatedSprite.play("Run")
+					$AnimatedSprite.flip_h = true
+					isLeft = false
+					$Position2D.position.x *= -1
+		else:
+			#acceleration.x = 0
+			is_moving = false
+			if on_ground == true && is_attacking == false:
+				$AnimatedSprite.play("Idle")
+			if is_landing:
+				SignalSystem.emit_signal("CameraShake", 1, 2, 100)
+				_landing_dust_particle()
+				is_landing = false
 
 	if Input.is_action_just_pressed("ui_up"):
 		if jump_count == 0:
@@ -91,23 +92,15 @@ func _physics_process(delta):
 			velocity.y = JUMP_POWER
 			on_ground = false
 			_jumping_dust_particle()
-		#elif jump_count == 1:
-		#	jump_count += 1
-		#	acceleration.y += JUMP_POWER / 2
 			
 		
 	if Input.is_action_just_pressed("ui_down") and on_ground == false:
-		acceleration.y = -JUMP_POWER + 100
+		acceleration.y += -JUMP_POWER + 100
 		$landingTimer.start()
 		
 	if Input.is_action_just_pressed("ui_mouse_left") && is_attacking == false:
-		if is_on_floor():
-			velocity.x = 0
 		is_attacking = true
 		get_node("/root/UI/SlashCooldown").value = 0
-		var hit = HIT_SKILL.instance()
-		add_child(hit)
-		hit.Show(global_position, isLeft)
 		var sword = SWORD.instance()
 		add_child(sword)
 		if $AnimatedSprite.flip_h == true:
@@ -137,10 +130,16 @@ func _physics_process(delta):
 	acceleration.y += GRAVITY
 				
 	velocity += acceleration
+	
+#	if is_on_floor():
+#		velocity.x = clamp(velocity.x, -SPEED, SPEED)
+#	else:
+#		velocity.x = clamp(velocity.x, -SPEED_AIR_X, SPEED_AIR_X)
+#		velocity.y = clamp(velocity.y, -SPEED_AIR_Y, SPEED_AIR_Y)
+	
 	velocity = move_and_slide(velocity, FLOOR)
-	velocity.x *= 0.8
-	clamp(velocity.x, 0, SPEED)
-	clamp(velocity.y, 0, SPEED*10)
+	if not is_hooking:
+		velocity.x *= 0.8
 	
 	acceleration = Vector2()
 

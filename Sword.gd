@@ -18,14 +18,15 @@ func _on_Sword_body_entered(body):
 		rock.position = $CollisionShape2D.position
 		get_parent().add_child(rock)
 	else:
-		SignalSystem.emit_signal("EnemyGotHit")
-		SignalSystem.emit_signal("CameraShake", 0.5, 0.4, 100)
-		body.OnGotHit(35)
-		var rock = rocks.instance()
-		rock.SetColor(Color(0,0,255))
-		rock.position = $CollisionShape2D.position
-		get_parent().add_child(rock)
-		body.Health.TakeDamage(35)
+		if body.name != "Pikachu":
+			SignalSystem.emit_signal("EnemyGotHit")
+			SignalSystem.emit_signal("CameraShake", 0.5, 0.4, 100)
+			body.OnGotHit(35)
+			var rock = rocks.instance()
+			rock.SetColor(Color(0,0,255))
+			rock.position = $CollisionShape2D.position
+			get_parent().add_child(rock)
+			body.Health.TakeDamage(35)
 		
 func _on_Timer_timeout():
 	queue_free()
