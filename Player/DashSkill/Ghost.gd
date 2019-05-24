@@ -1,32 +1,50 @@
 extends Node
 
-var delayTimer = 0.0
+var dashTick = 0.0
 var GetCurrentAnimationInfoFn : FuncRef
 var dashTotalTime = 0.0
 var dashTimer = 0.0
+
+const dashCooldown = 1.0
+var dashCooldownTimer = dashCooldown
 
 func _ready():
 	set_process(false)
 
 func Dash(dashTime):
-	Start()
+	var result = Start()
 	dashTotalTime = dashTime
+	return result
 	
 func Start():
-	dashTimer = 0.0
-	delayTimer = 0.0
-	dashTotalTime = 0.0
-	set_process(true)
-	
-func _process(delta):
-	delayTimer += delta
-	dashTimer = min(dashTimer + delta, dashTotalTime)
-	
-	if delayTimer > 0.05:
-		delayTimer -= 0.05
+	if dashCooldownTimer < dashCooldown:
+		return false
 		
-		if dashTotalTime > 0.0 and dashTimer >= dashTotalTime:
-			set_process(false)
+	dashTimer = 0.0
+	dashTick = 0.0
+	dashTotalTime = 0.0
+	dashCooldownTimer = 0.0
+	UI.DashAbility.value = 0.0
+	set_process(true)
+	return true
+	
+func _process(delta : float):
+	dashCooldownTimer += delta
+	UI.DashAbility.value = range_lerp(dashCooldownTimer, 0, dashCooldown, 0, 100)
+	
+	if dashCooldownTimer == dashCooldown:
+		set_process(false)
+		
+	if dashTotalTime > 0.0 and dashTimer >= dashTotalTime:
+		return
+		
+	dashTick += delta
+	
+	dashTimer = min(dashTimer + delta, dashTotalTime)
+	print(dashTimer)
+	
+	if dashTick > 0.05:
+		dashTick -= 0.05
 			
 		var tween = Tween.new()
 		var sprite = Sprite.new()

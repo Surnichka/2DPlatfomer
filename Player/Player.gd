@@ -51,11 +51,11 @@ func _ready():
 	SignalSystem.connect("PlayerGotHit", self, "OnGotHit")
 	
 func _physics_process(delta):
-	if get_node("/root/UI/DashCooldown").value < 100:
-		get_node("/root/UI/DashCooldown").value += 2
+	if get_node("/root/UI/HBoxContainer/DashCooldown").value < 100:
+		get_node("/root/UI/HBoxContainer/DashCooldown").value += 2
 		
-	if get_node("/root/UI/SlashCooldown").value < 100:
-		get_node("/root/UI/SlashCooldown").value += 2
+	if get_node("/root/UI/HBoxContainer/SlashCooldown").value < 100:
+		get_node("/root/UI/HBoxContainer/SlashCooldown").value += 2
 	
 	if not is_hooking:
 		if Input.is_action_pressed("ui_right"):
@@ -100,7 +100,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_mouse_left") && is_attacking == false:
 		is_attacking = true
-		get_node("/root/UI/SlashCooldown").value = 0
+		get_node("/root/UI/HBoxContainer/SlashCooldown").value = 0
 		var sword = SWORD.instance()
 		add_child(sword)
 		if $AnimatedSprite.flip_h == true:

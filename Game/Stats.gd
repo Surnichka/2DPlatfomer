@@ -3,12 +3,11 @@ extends Node
 onready var DashEndTimer = $DashEndTimer
 onready var Ghost = $Ghost
 
-const DASH_POWER = 450
+const DASH_POWER = 900
 var regen : float = 0.0
 var lifesteal : float = 0.0
 
 var regenTimer := 0.0
-var dashDelayTimer = 0.0
 
 func _ready():
 	Ghost.GetCurrentAnimationInfoFn = funcref(self, "GetCurrentAnimationInfoFn")
@@ -20,22 +19,14 @@ func _process(delta):
 	DashAbility(delta)
 	
 func DashAbility(delta):
-	if dashDelayTimer < 0.5:
-		dashDelayTimer += delta	
-		return
-		
 	if Input.is_action_just_pressed("ui_mouse_right"):
-		Ghost.Dash(0.3)
-		
-		var power = DASH_POWER
-		if get_parent().get_node("AnimatedSprite").flip_h:
-			power *= (-1)
-
-		get_parent().velocity.x += power
-		get_parent().set_collision_layer_bit(1, false)
-		get_node("/root/UI/DashCooldown").value = 0
-		DashEndTimer.start()
-		dashDelayTimer = 0.0
+		if Ghost.Dash(0.3):
+			var power = DASH_POWER
+			if get_parent().get_node("AnimatedSprite").flip_h:
+				power *= (-1)
+	
+			get_parent().velocity.x += power
+			get_parent().set_collision_layer_bit(1, false)
 
 func OnDashEnd():
 	get_parent().set_collision_layer_bit(1, true)
