@@ -1,5 +1,7 @@
 extends Node
 
+signal OnFinished
+
 var dashTick = 0.0
 var GetCurrentAnimationInfoFn : FuncRef
 var dashTotalTime = 0.0
@@ -7,6 +9,8 @@ var dashTimer = 0.0
 
 const dashCooldown = 1.0
 var dashCooldownTimer = dashCooldown
+
+var finished = false
 
 func _ready():
 	set_process(false)
@@ -25,6 +29,7 @@ func Start():
 	dashTotalTime = 0.0
 	dashCooldownTimer = 0.0
 	UI.DashAbility.value = 0.0
+	finished = false
 	set_process(true)
 	return true
 	
@@ -35,7 +40,12 @@ func _process(delta : float):
 	if dashCooldownTimer == dashCooldown:
 		set_process(false)
 		
+	if finished:
+		return
+		
 	if dashTotalTime > 0.0 and dashTimer >= dashTotalTime:
+		finished = true
+		emit_signal("OnFinished")
 		return
 		
 	dashTick += delta
@@ -67,6 +77,7 @@ func _process(delta : float):
 		tween.start()
 	
 func Stop():
+	emit_signal("OnFinished")
 	set_process(false)
 
 func OnTweenCompleted(tween, sprite):

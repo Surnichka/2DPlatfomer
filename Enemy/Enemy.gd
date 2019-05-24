@@ -8,6 +8,7 @@ const HEALTH_POTION = preload("res://Player/HealthRegen/HealthPotion.tscn")
 var GRAVITY = 10
 const FLOOR = Vector2(0, -1)
 
+var level = 1
 
 var speed = 30
 var direction = 1
@@ -78,6 +79,9 @@ func OnAnimationFinished():
 		if randi() % 2 == 0:
 			healthPotion.velocity.x *= (-1)
 		healthPotion.velocity.y = -(randi() % 200 + 100)
+		if int(UI.Highscore.text) < level:
+			UI.Highscore.text = str(level)
+		UI.MonsterKilled.text = str(int(UI.MonsterKilled.text) + 1)
 		queue_free()
 
 func OnGotHit(damage):
@@ -96,3 +100,4 @@ func SetDamage(d):
 	
 func SetRegen(regen):
 	healthRegen = regen
+	

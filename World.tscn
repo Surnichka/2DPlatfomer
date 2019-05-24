@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background/Sky.png" type="Texture" id=2]
@@ -10,6 +10,15 @@
 [ext_resource path="res://CameraShake/ScreenShake.gd" type="Script" id=8]
 [ext_resource path="res://World/Tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://Game/EnemySpawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/objects/Bush (2).png" type="Texture" id=11]
+[ext_resource path="res://sprites/objects/Bush (3).png" type="Texture" id=12]
+[ext_resource path="res://sprites/objects/Mushroom_1.png" type="Texture" id=13]
+[ext_resource path="res://sprites/objects/barrel.png" type="Texture" id=14]
+[ext_resource path="res://sprites/objects/cactus.png" type="Texture" id=15]
+[ext_resource path="res://sprites/objects/saxis.png" type="Texture" id=16]
+[ext_resource path="res://sprites/objects/rock.png" type="Texture" id=17]
+[ext_resource path="res://sprites/objects/branch2.png" type="Texture" id=18]
+[ext_resource path="res://sprites/objects/branch3.png" type="Texture" id=19]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -18,7 +27,6 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scale = Vector2( 0.4, 0.45 )
 transform = Transform2D( 0.4, 0, 0, 0.45, 0, 0 )
 
@@ -166,5 +174,120 @@ spawnTime = 5
 [node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource( 10 )]
 position = Vector2( 1213.41, 334.234 )
 spawnTime = 5
+
+[node name="EnviromentDecor" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Bush" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 455.177, 270.753 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="Bush2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 659.703, 336.79 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="SmallBush" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 527.885, 272.775 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="SmallBush2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 332.682, 353.716 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="SmallBush3" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 432.404, 273.359 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="Mushroom" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 344.379, 354.429 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="Mushroom2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 823.741, 354.011 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="Mushroom3" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 477.341, 394.986 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="Barrel" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 837.629, 349.781 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 14 )
+
+[node name="Barrel2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 989.74, 351.266 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 14 )
+
+[node name="Cactus" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 544.254, 268.235 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 15 )
+
+[node name="Cactus2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 466.507, 389.791 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 15 )
+
+[node name="Saxis" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 471.682, 392.201 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 16 )
+
+[node name="Saxis2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 684.235, 351.039 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 16 )
+
+[node name="Rock" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 211.745, 372.701 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 17 )
+
+[node name="Rock2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 7.6548, 373.834 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 17 )
+
+[node name="Rock3" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 861.715, 348.227 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 17 )
+
+[node name="Cactus3" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 22.2868, 369.337 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 15 )
+
+[node name="BranchGreen" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 403.85, 312.273 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 18 )
+
+[node name="BranchGreen2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 620.398, 345.068 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 18 )
+
+[node name="BranchYellow" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 14.657, 176.137 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="BranchYellow2" type="Sprite" parent="EnviromentDecor"]
+position = Vector2( 474.667, 343.37 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 19 )
+flip_h = true
 
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

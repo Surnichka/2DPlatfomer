@@ -1,6 +1,5 @@
 extends Node
 
-onready var DashEndTimer = $DashEndTimer
 onready var Ghost = $Ghost
 
 const DASH_POWER = 900
@@ -11,7 +10,7 @@ var regenTimer := 0.0
 
 func _ready():
 	Ghost.GetCurrentAnimationInfoFn = funcref(self, "GetCurrentAnimationInfoFn")
-	DashEndTimer.connect("timeout", self, "OnDashEnd")
+	Ghost.connect("OnFinished", self, "OnDashEnd")
 	SignalSystem.connect("EnemyGotHit", self, "OnPlayerMakeHit")
 
 func _process(delta):

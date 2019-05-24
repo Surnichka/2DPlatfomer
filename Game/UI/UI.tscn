@@ -9,6 +9,20 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+[node name="HighscoreName" type="Label" parent="."]
+margin_left = 3.76311
+margin_top = 5.43561
+margin_right = 83.7631
+margin_bottom = 19.4356
+text = "HIGHSCORE:"
+
+[node name="Highscore" type="Label" parent="."]
+margin_left = 88.1987
+margin_top = 5.01747
+margin_right = 104.199
+margin_bottom = 19.0175
+text = "0"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,4 +46,18 @@ margin_bottom = 512.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 fill_mode = 4
+
+[node name="MonsterKilledName" type="Label" parent="."]
+margin_left = 5.43559
+margin_top = 18.8155
+margin_right = 45.4356
+margin_bottom = 32.8155
+text = "MONSTER KILLED: "
+
+[node name="MonsterKilled" type="Label" parent="."]
+margin_left = 121.854
+margin_top = 19.2544
+margin_right = 134.854
+margin_bottom = 33.2544
+text = "0"
 
