@@ -11,6 +11,7 @@ var PRESET_STATS =[
 var currentStats := {}
 
 func _ready():
+	randomize()
 	CreateEnemy()
 
 func on_die_signal():
@@ -26,13 +27,15 @@ func CreateEnemy():
 	
 	if currentStats.empty():
 		var idx = randi() % PRESET_STATS.size()
-		print("PRESET_STATS: ", idx)
 		currentStats = PRESET_STATS[idx]
+		currentStats.level = 1
 	else:
 		currentStats.health += randi() % 10
 		currentStats.damage += randi() % 10
 		currentStats.regen += randi() % 10
+		currentStats.level += 1
 		
+	enemy.SetLevel(currentStats.level)
 	enemy.SetHealth(currentStats.health)
 	enemy.SetDamage(currentStats.damage)
 	enemy.SetRegen(currentStats.regen)

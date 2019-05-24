@@ -202,5 +202,5 @@ func OnGotHit(damage):
 	var showDamage = SHOWDAMAGE.instance()
 	add_child(showDamage)
 	showDamage.Show(damage)
-	showDamage.modulate = Color(255, 255, 0)
+	showDamage.modulate = Color(255, 255, 255)
 	

@@ -1,6 +1,6 @@
 extends Node
 
-func _ready():
-	$Pikachu.Player = $Player
+#func _ready():
+	#$Pikachu.Player = $Player
 
 

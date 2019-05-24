@@ -8,6 +8,7 @@ const HEALTH_POTION = preload("res://Player/HealthRegen/HealthPotion.tscn")
 var GRAVITY = 10
 const FLOOR = Vector2(0, -1)
 
+
 var speed = 30
 var direction = 1
 var velocity = Vector2()
@@ -83,7 +84,7 @@ func OnGotHit(damage):
 	var showDamage = SHOWDAMAGE.instance()
 	add_child(showDamage)
 	showDamage.Show(damage)
-	showDamage.modulate = Color(0,0,255)
+	showDamage.modulate = Color(255,255,255)
 
 func SetHealth(h):
 	_health = h

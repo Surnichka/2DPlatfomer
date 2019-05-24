@@ -35,7 +35,7 @@ func _process(delta):
 	else:
 		velocity = move_and_slide(Vector2(0, 100), Vector2(0, -1))
 		
-	if Player.on_ground:
+	if Player.is_on_floor():
 		var tileMap = get_tree().get_root().get_node("World").get_node("TileMap")
 		
 		var p = Player.get_node("Position2D").global_position
