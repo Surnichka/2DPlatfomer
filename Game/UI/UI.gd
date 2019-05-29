@@ -8,23 +8,30 @@ onready var MonsterKilled = $MonsterKilled
 
 onready var HealthBar = $HealthBar
 onready var Heart = $Heart
-	
+
+var PLAYER = null setget Init
+
 func _ready():
+	SignalSystem.connect("PlayerGotHit", self, "StartTakeDamageAnim")
 	Heart.set_frame(3)
 	
-func TakeDamage(damage):
-	HealthBar.value -= damage
-	if HealthBar.value <= 0:
-		HealthBar.value = 0
-		emit_signal("died")
-		
-func SetHealth(health:float):
-	$HealthBar.max_value = health
-	$HealthBar.value = health
-	
-func AddHealth(health):
-	HealthBar.value += health
+func StartTakeDamageAnim(damage):
+	Heart.set_frame(0)
+	Heart.play("hit")
 
 func _on_Heart_animation_finished():
 	Heart.stop()
+	
+func _process(delta):
+	HealthBar.value = PLAYER._stats.health
+
+func Init(player):
+	if player == null:
+		return
+		
+	PLAYER = player
+	HealthBar.max_value = PLAYER._stats.max_health
+	HealthBar.value = PLAYER._stats.health
+	
+	
 	

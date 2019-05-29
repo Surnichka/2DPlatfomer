@@ -1,7 +1,7 @@
 extends KinematicBody2D
+class_name Player
 
-
-const SPEED = 22
+var SPEED = 22
 const SPEED_AIR_X = 50
 const SPEED_AIR_Y = 500
 const GRAVITY = 10
@@ -16,11 +16,6 @@ const ROCKS = preload("res://particles/rocks/DirectionalRock.tscn")
 const HEALTH_PARTICLE = preload("res://particles/health/healthParticles.tscn")
 const SWORD = preload("res://Player/Sword.tscn")
 const STATS = preload("res://Game/Stats.tscn")
-const RAIN = preload("res://particles/rain/rain_particle.tscn")
-const RAIN_SPLASH = preload("res://World/enviroment/rain/RainSplash.tscn")
-const HIT_SKILL = preload("res://Player/HitSkill/hit_animation.tscn")
-var rain = RAIN.instance() #386 camera size
-var rain_splash = RAIN_SPLASH.instance()
 
 var attackCounter = 0
 var isAttacking = false
@@ -40,16 +35,12 @@ var acceleration = Vector2()
 var _stats = STATS.instance()
 
 func _ready():
+	UI.PLAYER = self
 	add_child(_stats)
-	
-#	$Camera2D.add_child(rain)
-#	rain.position.y = -120
-#	rain.set_scale(Vector2(0.5,0.5))
-#	$Camera2D.add_child(rain_splash)
-#	rain_splash.position.y = 36
-#	rain_splash.set_scale(Vector2(0.2,0.2))
-	
 	SignalSystem.connect("PlayerGotHit", self, "OnGotHit")
+	SignalSystem.connect("PlayerDied", self, "OnPlayerDied")
+	SignalSystem.connect("BerserkModeStart", self, "OnBerserkModeActivated")
+	SignalSystem.connect("BerserkModeStop", self, "OnBerserkModeDisabled")
 	
 func _physics_process(delta):
 	if get_node("/root/UI/HBoxContainer/DashCooldown").value < 100:
@@ -78,7 +69,6 @@ func _physics_process(delta):
 					isLeft = false
 					$Position2D.position.x *= -1
 		else:
-			#acceleration.x = 0
 			is_moving = false
 			if on_ground == true && is_attacking == false:
 				$AnimatedSprite.play("Idle")
@@ -101,7 +91,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_mouse_left") && is_attacking == false:
 		is_attacking = true
 		get_node("/root/UI/HBoxContainer/SlashCooldown").value = 0
-#		get_node("/root/UI/Heart").play("idle")
 		var sword = SWORD.instance()
 		add_child(sword)
 		if $AnimatedSprite.flip_h == true:
@@ -145,33 +134,23 @@ func _physics_process(delta):
 	acceleration = Vector2()
 
 func _on_Timer_timeout():
-	_walking_dust_particle()
-
-func _walking_dust_particle():
 	if is_moving == false or is_on_floor() == false:
 		return
-	var walkDust = DUST.instance()
-	walkDust.position = $Position2D.position
-	walkDust.emitting = true
-	walkDust.one_shot = true
-	self.add_child(walkDust)
-	
+	create_dust_particle(0, 6)
+
 func _landing_dust_particle():
-	var leftDust = DUST.instance()
-	leftDust.position = $Position2D.position
-	leftDust.position.x -= 10
-	leftDust.emitting = true
-	leftDust.one_shot = true
-	leftDust.amount = 12
-	self.add_child(leftDust)
+	create_dust_particle(10, 12)
+	create_dust_particle(-10, 12)
 	
-	var rightDust = DUST.instance()
-	rightDust.position = $Position2D.position
-	rightDust.position.x += 10
-	rightDust.emitting = true
-	rightDust.amount = 12
-	rightDust.one_shot = true
-	self.add_child(rightDust)
+func create_dust_particle(_position, _amount):
+	var dustParticle = DUST.instance()
+	dustParticle.position = $Position2D.position
+	dustParticle.position.x += _position
+	dustParticle.emitting = true
+	dustParticle.one_shot = true
+	dustParticle.amount = _amount
+	self.add_child(dustParticle)
+	
 
 func _jumping_dust_particle():
 	var airDust = DUST_AIR.instance()
@@ -199,13 +178,23 @@ func _on_landingTimer_timeout():
 
 func OnGotHit(damage):
 	_on_hit_particle()
-	get_node("/root/UI/Heart").set_frame(0)
-	get_node("/root/UI/Heart").play("hit")
-	get_node("/root/UI").TakeDamage(damage)
-#	HEALTH_BAR.TakeDamage(damage)
-#	$Health.TakeDamage(damage)
+	
 	var showDamage = SHOWDAMAGE.instance()
 	add_child(showDamage)
 	showDamage.Show(damage)
 	showDamage.modulate = Color(255, 255, 255)
 	
+	_stats.DecreaseHealth(damage)
+
+func OnPlayerDied():
+	$AnimatedSprite.play("Die")
+	set_collision_layer_bit(1, false)
+	set_physics_process(false)
+	
+func OnBerserkModeActivated():
+	SPEED += 20
+	$AnimatedSprite.speed_scale = 2.5
+	
+func OnBerserkModeDisabled():
+	SPEED -= 20
+	$AnimatedSprite.speed_scale = 1

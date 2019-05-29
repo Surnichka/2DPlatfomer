@@ -8,11 +8,6 @@ func Show(playerPos, isLeft):
 	Animation.play("hit")
 	set_as_toplevel(true)
 	position.y += 7
-#	if isLeft:
-#		position.x += 15
-#	else:
-#		position.x -= 15
-
 
 func _on_AnimatedSprite_animation_finished():
 	queue_free()

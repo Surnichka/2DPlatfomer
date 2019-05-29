@@ -38,28 +38,26 @@ scale = Vector2( 0.3, 0.06 )
 texture = ExtResource( 2 )
 
 [node name="HighscoreName" type="Label" parent="."]
-margin_left = 546.553
-margin_top = 6.4144
-margin_right = 626.553
-margin_bottom = 20.4144
-text = "HIGHSCORE:"
+margin_left = 484.484
+margin_top = 6.10704
+margin_right = 694.484
+margin_bottom = 20.107
+text = "HIGHEST LEVEL MONSTER KILLED:"
 
 [node name="Highscore" type="Label" parent="."]
-margin_left = 634.065
-margin_top = 5.66119
-margin_right = 642.065
-margin_bottom = 19.6612
+margin_left = 701.684
+margin_top = 5.58328
+margin_right = 709.684
+margin_bottom = 19.5833
 text = "0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.8997
-margin_top = 160.748
-margin_right = -9.10034
-margin_bottom = -47.2523
+margin_left = 15.2228
+margin_top = 635.155
+margin_right = -4.7771
+margin_bottom = 427.155
 rect_scale = Vector2( 0.15, 0.15 )
 custom_constants/separation = 0
 __meta__ = {
@@ -67,6 +65,7 @@ __meta__ = {
 }
 
 [node name="SlashCooldown" type="TextureProgress" parent="HBoxContainer"]
+visible = false
 margin_right = 512.0
 margin_bottom = 512.0
 texture_under = ExtResource( 3 )
@@ -74,25 +73,24 @@ texture_progress = ExtResource( 4 )
 fill_mode = 4
 
 [node name="DashCooldown" type="TextureProgress" parent="HBoxContainer"]
-margin_left = 512.0
-margin_right = 1024.0
+margin_right = 512.0
 margin_bottom = 512.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 fill_mode = 4
 
 [node name="MonsterKilledName" type="Label" parent="."]
-margin_left = 546.733
-margin_top = 24.1307
-margin_right = 664.733
-margin_bottom = 38.1307
-text = "MONSTER KILLED: "
+margin_left = 524.296
+margin_top = 22.2865
+margin_right = 642.296
+margin_bottom = 36.2865
+text = "MONSTERS KILLED: "
 
 [node name="MonsterKilled" type="Label" parent="."]
-margin_left = 667.859
-margin_top = 24.2749
-margin_right = 680.859
-margin_bottom = 38.2749
+margin_left = 652.72
+margin_top = 22.4307
+margin_right = 665.72
+margin_bottom = 36.4307
 text = "0"
 
 [node name="HealthBar" type="TextureProgress" parent="."]
@@ -116,5 +114,14 @@ position = Vector2( 53.1466, 34.0908 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "hit"
+
+[node name="Instructions" type="Label" parent="."]
+margin_left = 1105.14
+margin_top = 3.62535
+margin_right = 1266.14
+margin_bottom = 51.6254
+text = "Left click: Attack
+Right click: Dash
+Berserk Mode ON: SPACE"
 
 [connection signal="animation_finished" from="Heart" to="." method="_on_Heart_animation_finished"]

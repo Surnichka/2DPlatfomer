@@ -18,7 +18,7 @@ func _on_Sword_body_entered(body):
 		rock.position = $CollisionShape2D.position
 		get_parent().add_child(rock)
 	else:
-		if body.name != "Pikachu":
+		if body.name != "Pikachu" and body.name != "HealthPotion":
 			SignalSystem.emit_signal("EnemyGotHit")
 			SignalSystem.emit_signal("CameraShake", 0.5, 0.4, 100)
 			body.OnGotHit(35)
