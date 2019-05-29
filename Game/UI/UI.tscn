@@ -1,63 +1,120 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Game/UI/UI.gd" type="Script" id=1]
-[ext_resource path="res://sprites/skills/slash/slashInactive.png" type="Texture" id=2]
-[ext_resource path="res://sprites/skills/slash/slash.png" type="Texture" id=3]
-[ext_resource path="res://sprites/skills/dash/dash2.png" type="Texture" id=4]
-[ext_resource path="res://sprites/skills/dash/dash.png" type="Texture" id=5]
+[ext_resource path="res://sprites/healthbar/backgroundForSkills.png" type="Texture" id=2]
+[ext_resource path="res://sprites/skills/slash/slashInactive.png" type="Texture" id=3]
+[ext_resource path="res://sprites/skills/slash/slash.png" type="Texture" id=4]
+[ext_resource path="res://sprites/skills/dash/dash2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/skills/dash/dash.png" type="Texture" id=6]
+[ext_resource path="res://sprites/healthbar/bar2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/healthbar/healthForBar.png" type="Texture" id=8]
+[ext_resource path="res://sprites/healthbar/star.png" type="Texture" id=9]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_0.png" type="Texture" id=10]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_3.png" type="Texture" id=13]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_4.png" type="Texture" id=14]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_5.png" type="Texture" id=15]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_6.png" type="Texture" id=16]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_7.png" type="Texture" id=17]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_8.png" type="Texture" id=18]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_9.png" type="Texture" id=19]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_10.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "hit",
+"speed": 36.0
+} ]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 201.671, 35.0661 )
+scale = Vector2( 0.3, 0.06 )
+texture = ExtResource( 2 )
+
 [node name="HighscoreName" type="Label" parent="."]
-margin_left = 3.76311
-margin_top = 5.43561
-margin_right = 83.7631
-margin_bottom = 19.4356
+margin_left = 546.553
+margin_top = 6.4144
+margin_right = 626.553
+margin_bottom = 20.4144
 text = "HIGHSCORE:"
 
 [node name="Highscore" type="Label" parent="."]
-margin_left = 88.1987
-margin_top = 5.01747
-margin_right = 104.199
-margin_bottom = 19.0175
+margin_left = 634.065
+margin_top = 5.66119
+margin_right = 642.065
+margin_bottom = 19.6612
 text = "0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 630.0
-margin_bottom = 422.0
+margin_left = 10.8997
+margin_top = 160.748
+margin_right = -9.10034
+margin_bottom = -47.2523
 rect_scale = Vector2( 0.15, 0.15 )
 custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="SlashCooldown" type="TextureProgress" parent="HBoxContainer"]
 margin_right = 512.0
 margin_bottom = 512.0
-texture_under = ExtResource( 2 )
-texture_progress = ExtResource( 3 )
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 fill_mode = 4
 
 [node name="DashCooldown" type="TextureProgress" parent="HBoxContainer"]
 margin_left = 512.0
 margin_right = 1024.0
 margin_bottom = 512.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 fill_mode = 4
 
 [node name="MonsterKilledName" type="Label" parent="."]
-margin_left = 5.43559
-margin_top = 18.8155
-margin_right = 45.4356
-margin_bottom = 32.8155
+margin_left = 546.733
+margin_top = 24.1307
+margin_right = 664.733
+margin_bottom = 38.1307
 text = "MONSTER KILLED: "
 
 [node name="MonsterKilled" type="Label" parent="."]
-margin_left = 121.854
-margin_top = 19.2544
-margin_right = 134.854
-margin_bottom = 33.2544
+margin_left = 667.859
+margin_top = 24.2749
+margin_right = 680.859
+margin_bottom = 38.2749
 text = "0"
 
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 89.3021
+margin_top = 19.3961
+margin_right = 546.302
+margin_bottom = 76.3961
+rect_scale = Vector2( 0.6, 0.5 )
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+
+[node name="Star" type="Sprite" parent="."]
+visible = false
+position = Vector2( 47.1612, 102.294 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Heart" type="AnimatedSprite" parent="."]
+position = Vector2( 53.1466, 34.0908 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 1 )
+animation = "hit"
+
+[connection signal="animation_finished" from="Heart" to="." method="_on_Heart_animation_finished"]

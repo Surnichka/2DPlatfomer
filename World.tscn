@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://sprites/background/Sky.png" type="Texture" id=2]
@@ -19,6 +19,80 @@
 [ext_resource path="res://sprites/objects/rock.png" type="Texture" id=17]
 [ext_resource path="res://sprites/objects/branch2.png" type="Texture" id=18]
 [ext_resource path="res://sprites/objects/branch3.png" type="Texture" id=19]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_0.png" type="Texture" id=20]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_1.png" type="Texture" id=21]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_2.png" type="Texture" id=22]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_3.png" type="Texture" id=23]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_4.png" type="Texture" id=24]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_5.png" type="Texture" id=25]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_6.png" type="Texture" id=26]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_7.png" type="Texture" id=27]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_8.png" type="Texture" id=28]
+[ext_resource path="res://sprites/objects/BusheshAnimation/BigBush/bush_9.png" type="Texture" id=29]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_0.png" type="Texture" id=30]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_1.png" type="Texture" id=31]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_2.png" type="Texture" id=32]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_3.png" type="Texture" id=33]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_4.png" type="Texture" id=34]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_5.png" type="Texture" id=35]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_6.png" type="Texture" id=36]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_7.png" type="Texture" id=37]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_8.png" type="Texture" id=38]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_9.png" type="Texture" id=39]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_10.png" type="Texture" id=40]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_11.png" type="Texture" id=41]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_12.png" type="Texture" id=42]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_13.png" type="Texture" id=43]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_14.png" type="Texture" id=44]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_15.png" type="Texture" id=45]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_16.png" type="Texture" id=46]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_17.png" type="Texture" id=47]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_18.png" type="Texture" id=48]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiFastAnimation/saxi_19.png" type="Texture" id=49]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_0.png" type="Texture" id=50]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_1.png" type="Texture" id=51]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_2.png" type="Texture" id=52]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_3.png" type="Texture" id=53]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_4.png" type="Texture" id=54]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_5.png" type="Texture" id=55]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_6.png" type="Texture" id=56]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_7.png" type="Texture" id=57]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_8.png" type="Texture" id=58]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_9.png" type="Texture" id=59]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_10.png" type="Texture" id=60]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_11.png" type="Texture" id=61]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_12.png" type="Texture" id=62]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_13.png" type="Texture" id=63]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_14.png" type="Texture" id=64]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_15.png" type="Texture" id=65]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_16.png" type="Texture" id=66]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_17.png" type="Texture" id=67]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_18.png" type="Texture" id=68]
+[ext_resource path="res://sprites/objects/FlowerAnimation/SaxiSlowAnimation/saxi_19.png" type="Texture" id=69]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 13.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -27,10 +101,12 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scale = Vector2( 0.4, 0.45 )
 transform = Transform2D( 0.4, 0, 0, 0.45, 0, 0 )
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( 0, -146.667 )
 motion_scale = Vector2( 0, 1 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -46,6 +122,7 @@ __meta__ = {
 }
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( -27.5, -166.667 )
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -61,6 +138,7 @@ __meta__ = {
 }
 
 [node name="MiddleDecor" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( -23.6844, -163.743 )
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -76,6 +154,7 @@ __meta__ = {
 }
 
 [node name="Foreground" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( -20, -162.222 )
 motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 1920, 0 )
@@ -91,7 +170,8 @@ __meta__ = {
 }
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -5.84145, -573.797 )
+editor/display_folded = true
+position = Vector2( -5.84145, -518.241 )
 motion_mirroring = Vector2( 1920, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -107,7 +187,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 editor/display_folded = true
-position = Vector2( 513.012, 194.489 )
+position = Vector2( 498.437, 250.185 )
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -148,7 +228,7 @@ position = Vector2( 107.289, 313.884 )
 spawnTime = 1
 
 [node name="EnemySpawner8" parent="EnemySpawners" instance=ExtResource( 10 )]
-position = Vector2( 318.868, 294.937 )
+position = Vector2( 459.929, 263.554 )
 spawnTime = 5
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource( 10 )]
@@ -176,6 +256,7 @@ position = Vector2( 1213.41, 334.234 )
 spawnTime = 5
 
 [node name="EnviromentDecor" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -1
 
 [node name="Bush" type="Sprite" parent="EnviromentDecor"]
@@ -289,5 +370,29 @@ position = Vector2( 474.667, 343.37 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 19 )
 flip_h = true
+
+[node name="BBush" type="AnimatedSprite" parent="."]
+position = Vector2( 747.952, 351.392 )
+scale = Vector2( 0.3, 0.3 )
+z_index = -1
+frames = SubResource( 1 )
+frame = 5
+playing = true
+
+[node name="Saxi2" type="AnimatedSprite" parent="."]
+position = Vector2( 941.228, 309.906 )
+scale = Vector2( 0.07, 0.07 )
+z_index = -1
+frames = SubResource( 2 )
+frame = 15
+playing = true
+
+[node name="Saxi" type="AnimatedSprite" parent="."]
+position = Vector2( 911.192, 309.466 )
+scale = Vector2( 0.07, 0.07 )
+z_index = -1
+frames = SubResource( 3 )
+frame = 8
+playing = true
 
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

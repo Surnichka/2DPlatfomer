@@ -34,10 +34,11 @@ func RegenAbility(delta):
 	regenTimer += delta
 	if regenTimer >= 0.100:
 		regenTimer -= 0.100
-		get_parent().get_node("Health").AddHealth(regen / 10.0)
+#		get_parent().get_node("Health").AddHealth(regen / 10.0)
 
 func OnPlayerMakeHit():
-	get_parent().get_node("Health").AddHealth(lifesteal)
+	pass
+#	get_parent().get_node("Health").AddHealth(lifesteal)
 
 func GetCurrentAnimationInfoFn():
 	var Anim = get_parent().get_node("AnimatedSprite")

@@ -41,6 +41,7 @@ var _stats = STATS.instance()
 
 func _ready():
 	add_child(_stats)
+	
 #	$Camera2D.add_child(rain)
 #	rain.position.y = -120
 #	rain.set_scale(Vector2(0.5,0.5))
@@ -92,7 +93,6 @@ func _physics_process(delta):
 			velocity.y = JUMP_POWER
 			on_ground = false
 			_jumping_dust_particle()
-			
 		
 	if Input.is_action_just_pressed("ui_down") and on_ground == false:
 		acceleration.y += -JUMP_POWER + 100
@@ -101,6 +101,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_mouse_left") && is_attacking == false:
 		is_attacking = true
 		get_node("/root/UI/HBoxContainer/SlashCooldown").value = 0
+#		get_node("/root/UI/Heart").play("idle")
 		var sword = SWORD.instance()
 		add_child(sword)
 		if $AnimatedSprite.flip_h == true:
@@ -198,7 +199,11 @@ func _on_landingTimer_timeout():
 
 func OnGotHit(damage):
 	_on_hit_particle()
-	$Health.TakeDamage(damage)
+	get_node("/root/UI/Heart").set_frame(0)
+	get_node("/root/UI/Heart").play("hit")
+	get_node("/root/UI").TakeDamage(damage)
+#	HEALTH_BAR.TakeDamage(damage)
+#	$Health.TakeDamage(damage)
 	var showDamage = SHOWDAMAGE.instance()
 	add_child(showDamage)
 	showDamage.Show(damage)
