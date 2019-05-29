@@ -189,6 +189,7 @@ __meta__ = {
 editor/display_folded = true
 position = Vector2( 498.437, 250.185 )
 collision_layer = 2
+collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -24.8595, -18.78 )
@@ -375,7 +376,6 @@ position = Vector2( 747.952, 351.392 )
 scale = Vector2( 0.3, 0.3 )
 z_index = -1
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Saxi2" type="AnimatedSprite" parent="."]
@@ -383,7 +383,7 @@ position = Vector2( 941.228, 309.906 )
 scale = Vector2( 0.07, 0.07 )
 z_index = -1
 frames = SubResource( 2 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Saxi" type="AnimatedSprite" parent="."]
@@ -391,7 +391,7 @@ position = Vector2( 911.192, 309.466 )
 scale = Vector2( 0.07, 0.07 )
 z_index = -1
 frames = SubResource( 3 )
-frame = 15
+frame = 17
 playing = true
 
 [connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

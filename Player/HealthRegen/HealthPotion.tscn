@@ -23,7 +23,7 @@ animations = [ {
 extents = Vector2( 2.2185, 3.82018 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
-collision_layer = 3
+collision_layer = 16
 collision_mask = 3
 script = ExtResource( 1 )
 

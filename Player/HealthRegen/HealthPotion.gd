@@ -29,6 +29,7 @@ func _on_Area2D_body_entered(body):
 		$Area2D/CollisionShape2D.call_deferred("set_disabled", true)
 		hide()
 
+
 func OnHealthFinished():
 	print("REMOVE 5 HEALTH REGEN")
 	consumerMirror._stats.regen -= healAmount
