@@ -5,7 +5,7 @@ onready var Ghost = $Ghost
 var berserk_mode_duration := 5.0
 var berserk_mode_on = false
 
-const DASH_POWER = 900
+const DASH_POWER = 650
 var health : float = 100.0
 var max_health := 100.0
 var regen : float = 0.0
@@ -64,6 +64,7 @@ func BerserkAbility():
 		berserk_mode_on = true
 		Ghost.Dash(berserk_mode_duration)
 		SignalSystem.emit_signal("BerserkModeStart")
+		get_node("/root/UI/HBoxContainer/BerserkCooldown").value = 0
 	
 func GetCurrentAnimationInfoFn():
 	var Anim = get_parent().get_node("AnimatedSprite")

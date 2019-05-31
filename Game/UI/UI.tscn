@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://sprites/healthbar/backgroundForSkills.png" type="Texture" id=2]
@@ -6,24 +6,27 @@
 [ext_resource path="res://sprites/skills/slash/slash.png" type="Texture" id=4]
 [ext_resource path="res://sprites/skills/dash/dash2.png" type="Texture" id=5]
 [ext_resource path="res://sprites/skills/dash/dash.png" type="Texture" id=6]
-[ext_resource path="res://sprites/healthbar/bar2.png" type="Texture" id=7]
-[ext_resource path="res://sprites/healthbar/healthForBar.png" type="Texture" id=8]
-[ext_resource path="res://sprites/healthbar/star.png" type="Texture" id=9]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_0.png" type="Texture" id=10]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_1.png" type="Texture" id=11]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_2.png" type="Texture" id=12]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_3.png" type="Texture" id=13]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_4.png" type="Texture" id=14]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_5.png" type="Texture" id=15]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_6.png" type="Texture" id=16]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_7.png" type="Texture" id=17]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_8.png" type="Texture" id=18]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_9.png" type="Texture" id=19]
-[ext_resource path="res://sprites/healthbar/heartAnimation/heart_10.png" type="Texture" id=20]
+[ext_resource path="res://sprites/skills/berserk/berserkInactive.png" type="Texture" id=7]
+[ext_resource path="res://sprites/skills/berserk/berserk.png" type="Texture" id=8]
+[ext_resource path="res://sprites/healthbar/bar2.png" type="Texture" id=9]
+[ext_resource path="res://sprites/healthbar/healthForBar.png" type="Texture" id=10]
+[ext_resource path="res://sprites/healthbar/star.png" type="Texture" id=11]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_0.png" type="Texture" id=12]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_1.png" type="Texture" id=13]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_3.png" type="Texture" id=15]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_4.png" type="Texture" id=16]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_5.png" type="Texture" id=17]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_6.png" type="Texture" id=18]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_7.png" type="Texture" id=19]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_8.png" type="Texture" id=20]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_9.png" type="Texture" id=21]
+[ext_resource path="res://sprites/healthbar/heartAnimation/heart_10.png" type="Texture" id=22]
+[ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "hit",
 "speed": 36.0
@@ -54,10 +57,10 @@ text = "0"
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.2228
-margin_top = 635.155
-margin_right = -4.7771
-margin_bottom = 427.155
+margin_left = 15.0
+margin_top = 635.0
+margin_right = 367.0
+margin_bottom = 427.0
 rect_scale = Vector2( 0.15, 0.15 )
 custom_constants/separation = 0
 __meta__ = {
@@ -78,6 +81,16 @@ margin_bottom = 512.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 fill_mode = 4
+
+[node name="BerserkCooldown" type="TextureProgress" parent="HBoxContainer"]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 512.0
+max_value = 500.0
+value = 500.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+fill_mode = 2
 
 [node name="MonsterKilledName" type="Label" parent="."]
 margin_left = 524.296
@@ -100,14 +113,14 @@ margin_right = 546.302
 margin_bottom = 76.3961
 rect_scale = Vector2( 0.6, 0.5 )
 value = 100.0
-texture_under = ExtResource( 7 )
-texture_progress = ExtResource( 8 )
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 10 )
 
 [node name="Star" type="Sprite" parent="."]
 visible = false
 position = Vector2( 47.1612, 102.294 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Heart" type="AnimatedSprite" parent="."]
 position = Vector2( 53.1466, 34.0908 )
@@ -123,5 +136,11 @@ margin_bottom = 51.6254
 text = "Left click: Attack
 Right click: Dash
 Berserk Mode ON: SPACE"
+
+[node name="Node" parent="." instance=ExtResource( 23 )]
+margin_left = 398.95
+margin_top = 175.79
+margin_right = 398.95
+margin_bottom = 175.79
 
 [connection signal="animation_finished" from="Heart" to="." method="_on_Heart_animation_finished"]

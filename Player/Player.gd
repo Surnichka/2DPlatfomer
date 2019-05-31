@@ -48,6 +48,9 @@ func _physics_process(delta):
 		
 	if get_node("/root/UI/HBoxContainer/SlashCooldown").value < 100:
 		get_node("/root/UI/HBoxContainer/SlashCooldown").value += 2
+		
+	if get_node("/root/UI/HBoxContainer/BerserkCooldown").value < 500:
+		get_node("/root/UI/HBoxContainer/BerserkCooldown").value += 2
 	
 	if not is_hooking:
 		if Input.is_action_pressed("ui_right"):

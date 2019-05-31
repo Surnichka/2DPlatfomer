@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Inventory/InventoryEvent.gd" type="Script" id=1]
+[ext_resource path="res://sprites/inventory_icons/helmet_inventory_icon.png" type="Texture" id=2]
+[ext_resource path="res://sprites/inventory_icons/two-handed-sword.png" type="Texture" id=3]
+[ext_resource path="res://sprites/inventory_icons/leg-armor.png" type="Texture" id=4]
+[ext_resource path="res://sprites/inventory_icons/gloves.png" type="Texture" id=5]
+[ext_resource path="res://sprites/inventory_icons/chest-armor.png" type="Texture" id=6]
+[ext_resource path="res://Inventory/Inventory.gd" type="Script" id=7]
+
+[node name="Node" type="Control"]
+script = ExtResource( 1 )
+
+[node name="Armors" type="Panel" parent="."]
+margin_left = 52.1367
+margin_top = 64.0807
+margin_right = 215.137
+margin_bottom = 224.081
+rect_min_size = Vector2( 150, 160 )
+rect_scale = Vector2( 1.4, 1.4 )
+
+[node name="ArmorContainer" type="GridContainer" parent="Armors"]
+margin_right = 40.0
+margin_bottom = 40.0
+columns = 3
+
+[node name="Helemt" type="Sprite" parent="Armors/ArmorContainer"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.564706 )
+position = Vector2( 74.8429, 24.5483 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 2 )
+
+[node name="Sword" type="Sprite" parent="Armors/ArmorContainer"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 26.8384, 79.9499 )
+rotation = -3.14159
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 3 )
+
+[node name="Boots" type="Sprite" parent="Armors/ArmorContainer"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 73.9243, 137.264 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 4 )
+
+[node name="Gloves" type="Sprite" parent="Armors/ArmorContainer"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 127.189, 81.2596 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 5 )
+
+[node name="Armor" type="Sprite" parent="Armors/ArmorContainer"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 74.2649, 75.2363 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 6 )
+
+[node name="Panel" type="Panel" parent="."]
+editor/display_folded = true
+margin_left = 285.028
+margin_top = 41.8666
+margin_right = 445.028
+margin_bottom = 241.867
+rect_scale = Vector2( 1.4, 1.4 )
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 154.0
+margin_bottom = 193.0
+mouse_filter = 2
+columns = 4
+script = ExtResource( 7 )
+
