@@ -1,0 +1,40 @@
+                Task
+
+THINGS THAT HAVE BEEN DONE SO FAR
+
+1. Create a basic map
+2. Create a basic player with input , jump and attack
+3. Create a basic enemy with sight radius , attack , die and move
+4. When an enemy dies spawn a health potions at his place and the player 
+    will be able to pick it up and heal
+5. Add particles for healing effect, for moving , attacking the enviroment,
+    attacking the monster, when you take damage and when you jump.
+6. Add skills with cooldown timer, for now dash and basic strike.
+7. Add a friendly pet which will follow you around the map and will have 
+    the basic animations for move, idle and follow
+
+THINGS THAT NEED TO BE DONE
+1. Add a grapling hook. The hook will strike in the position the mouse cursor 
+    is at. If it lands at a tile it will blast you off from the ground with a
+    nice speed and into the air a little above the tile. You will be able to do
+    one jump to help you choose your direction after that.
+
+    // Hook was added but it was decided that it wont go well with the game and 
+        has been removed for now
+
+2. Make the ui for the skills better. Put them all in one frame. Make them smaller
+    and find them better images, so they will feel better with the game style.
+
+3. Design a good map. This should be left for when the game is atleast 60-70% done
+    so we should know what type of map we should be making. Also if the grapling hook 
+    is implemented the map should be designed really well so you can have the freedom 
+    to use it around the map.
+
+4. Add items. Boots, gloves, sword, helmet, armor.
+5. Add item stash. You will have the option to equip all of the items and they will give
+    you stats and unlock skills.
+
+6. Add juice to the game. Make everything feel more alive. Add effects to the trees when 
+    you pass by them, rocks, everything around you should feel more alive when you move around it.
+
+
